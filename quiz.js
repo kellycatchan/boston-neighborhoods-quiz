@@ -2,12 +2,12 @@
 const map = L.map('map', {
   center: [42.314083, -71.086280],
   zoom: 12,
-  zoomControl: true,
-  scrollWheelZoom: true,
+  zoomControl: false,
+  scrollWheelZoom: false,
   doubleClickZoom: false,
   boxZoom: false,
   keyboard: false,
-  dragging: true,
+  dragging: false,
 });
 
 const esriWorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
