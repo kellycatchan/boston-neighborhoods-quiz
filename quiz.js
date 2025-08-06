@@ -28,7 +28,7 @@ fetch("boston_neighborhoods.geojson")
   .then((res) => res.json())
   .then((data) => {
     neighborhoodData = data;
-    L.geoJSON(neighborhoodData, {
+    Const geojsonLayer = L.geoJSON(neighborhoodData, {
       style: {
         color: "#555",
         weight: 1,
@@ -40,25 +40,45 @@ fetch("boston_neighborhoods.geojson")
         layerMap[name] = layer;
 
         layer.on("click", () => {
-          if (name === currentTarget) {
-            layer.setStyle({ fillColor: "green" });
-            nextQuestion();
-          } else {
-            layer.setStyle({ fillColor: "red" });
-          }
-        });
-      },
+  		if (name === currentTarget) {
+    		layer.setStyle({ fillColor: "green" });
+   		 guessedNeighborhoods.add(name);
+   		 updateScoreTracker();
+   		 nextQuestion();
+  		} else {
+   		 layer.setStyle({ fillColor: "red" });
+  		}
+		});
+   	   },
     }).addTo(map);
+
+	map.fitBounds(geojsonLayer.getBounds());
 
     nextQuestion();
   });
 
 // 4. Pick and display a new neighborhood to guess
 function nextQuestion() {
-  const names = Object.keys(layerMap);
-  currentTarget = names[Math.floor(Math.random() * names.length)];
+  // Get all neighborhood names
+  const allNames = Object.keys(layerMap);
+
+  // Filter out guessed neighborhoods
+  const remaining = allNames.filter(name => !guessedNeighborhoods.has(name));
+
+  if (remaining.length === 0) {
+    document.getElementById("target-name").textContent = "All done!";
+    // Optionally, disable further clicks or reset the game here
+    return;
+  }
+
+  currentTarget = remaining[Math.floor(Math.random() * remaining.length)];
   document.getElementById("target-name").textContent = currentTarget;
 }
 
-
+//score tracker
+function updateScoreTracker() {
+  const total = Object.keys(layerMap).length;
+  const guessed = guessedNeighborhoods.size;
+  document.getElementById("score-tracker").textContent = `${guessed} / ${total}`;
+}
 
