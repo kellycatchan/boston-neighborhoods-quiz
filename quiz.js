@@ -1,5 +1,14 @@
 // 1. Initialize the map
-const map = L.map("map").setView([42.32, -71.08], 12); // Boston coords
+const map = L.map('map', {
+  center: [42.3601, -71.0589],
+  zoom: 12,
+  zoomControl: false,
+  scrollWheelZoom: false,
+  doubleClickZoom: false,
+  boxZoom: false,
+  keyboard: false,
+  dragging: false,
+});
 
 const esriWorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
@@ -51,22 +60,5 @@ function nextQuestion() {
   document.getElementById("target-name").textContent = currentTarget;
 }
 
-const map = L.map('map', {
-  center: [42.3601, -71.0589],
-  zoom: 12,
-  zoomControl: false,
-  scrollWheelZoom: false,
-  doubleClickZoom: false,
-  boxZoom: false,
-  keyboard: false,
-  dragging: false,
-});
 
-map.scrollWheelZoom.disable();
-map.doubleClickZoom.disable();
-map.boxZoom.disable();
-map.keyboard.disable();
-map.dragging.disable();
-map.touchZoom.disable();
-map.zoomControl.remove(); // Removes the UI buttons
 
