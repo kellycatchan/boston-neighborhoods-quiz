@@ -2,8 +2,8 @@
 const map = L.map('map', {
   center: [42.314083, -71.086280],
   zoom: 12,
-  zoomControl: false,
-  scrollWheelZoom: false,
+  zoomControl: true,
+  scrollWheelZoom: true,
   doubleClickZoom: false,
   boxZoom: false,
   keyboard: false,
