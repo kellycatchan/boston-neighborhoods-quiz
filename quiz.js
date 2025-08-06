@@ -1,9 +1,8 @@
 // 1. Initialize the map
 const map = L.map("map").setView([42.32, -71.08], 12); // Boston coords
 
-L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-  maxZoom: 18,
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
 
 // 2. Game state
@@ -47,5 +46,3 @@ function nextQuestion() {
   currentTarget = names[Math.floor(Math.random() * names.length)];
   document.getElementById("target-name").textContent = currentTarget;
 }
-
-
