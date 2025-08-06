@@ -7,7 +7,8 @@ const map = L.map('map', {
   doubleClickZoom: false,
   boxZoom: false,
   keyboard: false,
-  dragging: false,
+  dragging: true,
+  touchZoom: true,
 });
 
 const esriWorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
