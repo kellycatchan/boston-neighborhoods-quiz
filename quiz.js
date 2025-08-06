@@ -1,8 +1,8 @@
 // 1. Initialize the map
 const map = L.map("map").setView([42.32, -71.08], 12); // Boston coords
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: "&copy; OpenStreetMap contributors",
+L.tileLayer('https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
 }).addTo(map);
 
 // 2. Game state
