@@ -1,11 +1,12 @@
 // 1. Initialize the map
 const map = L.map("map").setView([42.32, -71.08], 12); // Boston coords
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
-  subdomains: 'abcd',
-  maxZoom: 19
-}).addTo(map);
+const esriWorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 16
+});
+
+esriWorldGrayCanvas.addTo(map);
 
 
 // 2. Game state
@@ -23,7 +24,7 @@ fetch("boston_neighborhoods.geojson")
         color: "#555",
         weight: 1,
         fillColor: "#ccc",
-        fillOpacity: 0.6,
+        fillOpacity: 1,
       },
       onEachFeature: (feature, layer) => {
         const name = feature.properties.Name || feature.properties.name;
@@ -58,7 +59,7 @@ const map = L.map('map', {
   doubleClickZoom: false,
   boxZoom: false,
   keyboard: false,
-  dragging: true  // or false if you want completely static map
+  dragging: false,
 });
 
 map.scrollWheelZoom.disable();
