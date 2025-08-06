@@ -1,8 +1,8 @@
 // 1. Initialize the map
 const map = L.map("map").setView([42.32, -71.08], 12); // Boston coords
 
-L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg', {
-  attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap contributors',
+L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
   maxZoom: 18,
 }).addTo(map);
 
@@ -47,3 +47,15 @@ function nextQuestion() {
   currentTarget = names[Math.floor(Math.random() * names.length)];
   document.getElementById("target-name").textContent = currentTarget;
 }
+
+//make map static
+const map = L.map('map', {
+  center: [42.3601, -71.0589],
+  zoom: 12,
+  zoomControl: false,
+  scrollWheelZoom: false,
+  doubleClickZoom: false,
+  boxZoom: false,
+  keyboard: false,
+  dragging: false,
+});
