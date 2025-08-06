@@ -28,7 +28,7 @@ fetch("boston_neighborhoods.geojson")
   .then((res) => res.json())
   .then((data) => {
     neighborhoodData = data;
-    Const geojsonLayer = L.geoJSON(neighborhoodData, {
+    const geojsonLayer = L.geoJSON(neighborhoodData, {
       style: {
         color: "#555",
         weight: 1,
