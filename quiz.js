@@ -48,15 +48,4 @@ function nextQuestion() {
   document.getElementById("target-name").textContent = currentTarget;
 }
 
-//make map static
-const map = L.map('map', {
-  center: [42.3601, -71.0589],
-  zoom: 12,
-  zoomControl: false,
-  scrollWheelZoom: false,
-  doubleClickZoom: false,
-  boxZoom: false,
-  keyboard: false,
-  dragging: false,
-  touchZoom: false
-});
+
