@@ -1,9 +1,10 @@
 // 1. Initialize the map
 const map = L.map("map").setView([42.32, -71.08], 12); // Boston coords
 
-L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png', {
-  attribution: 'Map tiles by <a href="https://stamen.com">Stamen Design</a>, CC BY 3.0 — Map data © <a href="https://openstreetmap.org">OpenStreetMap</a>',
-  maxZoom: 20
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
 }).addTo(map);
 
 
@@ -48,6 +49,17 @@ function nextQuestion() {
   currentTarget = names[Math.floor(Math.random() * names.length)];
   document.getElementById("target-name").textContent = currentTarget;
 }
+
+const map = L.map('map', {
+  center: [42.3601, -71.0589],
+  zoom: 12,
+  zoomControl: false,
+  scrollWheelZoom: false,
+  doubleClickZoom: false,
+  boxZoom: false,
+  keyboard: false,
+  dragging: true  // or false if you want completely static map
+});
 
 map.scrollWheelZoom.disable();
 map.doubleClickZoom.disable();
