@@ -1,9 +1,11 @@
 // 1. Initialize the map
 const map = L.map("map").setView([42.32, -71.08], 12); // Boston coords
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: "&copy; OpenStreetMap contributors",
+L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png', {
+  attribution: 'Map tiles by <a href="https://stamen.com">Stamen Design</a>, CC BY 3.0 — Map data © <a href="https://openstreetmap.org">OpenStreetMap</a>',
+  maxZoom: 20
 }).addTo(map);
+
 
 // 2. Game state
 let neighborhoodData;
@@ -46,3 +48,12 @@ function nextQuestion() {
   currentTarget = names[Math.floor(Math.random() * names.length)];
   document.getElementById("target-name").textContent = currentTarget;
 }
+
+map.scrollWheelZoom.disable();
+map.doubleClickZoom.disable();
+map.boxZoom.disable();
+map.keyboard.disable();
+map.dragging.disable();
+map.touchZoom.disable();
+map.zoomControl.remove(); // Removes the UI buttons
+
