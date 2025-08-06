@@ -58,4 +58,5 @@ const map = L.map('map', {
   boxZoom: false,
   keyboard: false,
   dragging: false,
+  touchZoom: false
 });
