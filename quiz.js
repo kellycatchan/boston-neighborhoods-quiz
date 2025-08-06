@@ -1,11 +1,10 @@
 // 1. Initialize the map
 const map = L.map("map").setView([42.32, -71.08], 12); // Boston coords
 
-L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg', {
+  attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap contributors',
   maxZoom: 18,
 }).addTo(map);
-
 
 // 2. Game state
 let neighborhoodData;
