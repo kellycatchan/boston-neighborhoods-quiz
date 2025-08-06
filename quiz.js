@@ -1,6 +1,6 @@
 // 1. Initialize the map
 const map = L.map('map', {
-  center: [42.314083, -71.086280],
+  center: [42.3601, -71.0589],
   zoom: 12,
   zoomControl: false,
   scrollWheelZoom: false,
@@ -12,7 +12,7 @@ const map = L.map('map', {
 
 const esriWorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-	//maxZoom: 16
+	maxZoom: 16
 });
 
 esriWorldGrayCanvas.addTo(map);
@@ -22,7 +22,6 @@ esriWorldGrayCanvas.addTo(map);
 let neighborhoodData;
 let currentTarget;
 let layerMap = {}; // key: neighborhood name, value: layer
-let guessedNeighborhoods = new Set();
 
 // 3. Load GeoJSON (hosted or local)
 fetch("boston_neighborhoods.geojson")
