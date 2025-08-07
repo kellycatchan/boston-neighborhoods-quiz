@@ -56,7 +56,7 @@ fetch("boston_neighborhoods.geojson")
     }).addTo(map);
 
 	map.fitBounds(geojsonLayer.getBounds());
-
+	updateScoreTracker();
     nextQuestion();
   });
 
