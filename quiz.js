@@ -22,6 +22,7 @@ esriWorldGrayCanvas.addTo(map);
 let neighborhoodData;
 let currentTarget;
 let layerMap = {}; // key: neighborhood name, value: layer
+let guessedNeighborhoods = new Set();
 
 // 3. Load GeoJSON (hosted or local)
 fetch("boston_neighborhoods.geojson")
