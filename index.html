@@ -4,6 +4,7 @@
   <title>Boston Neighborhood Quiz</title>
   <meta charset="utf-8" />
   <link
+  	href='https://fonts.googleapis.com/css?family=Roboto Condensed'
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
@@ -12,9 +13,11 @@
     #question { margin: 10px; font-size: 1.2em; }
   </style>
 </head>
-<body>
-  <div id="question">Click on: <span id="target-name">Loading...</span></div>
-  <div id="score-tracker">Missed: 0</div>
+<body style="text-align:center; font-family:Roboto Condensed;">
+  <h1>How well do you know Boston's neighborhoods?</h1><br>
+  <h2>If you identify the correct neighborhood on the map, it will turn green and give you another neighborhood.<br><br>If you're incorrect, it will turn red and you'll need to keep guessing until you find the right neighborhood on the map.</h2><br>
+  <div style="font-size:1.5rem;" id="question">Click on: <span id="target-name">Loading...</span></div>
+  <div style="font-size:1.5rem;" id="score-tracker">Missed: 0</div>
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="quiz.js"></script>
