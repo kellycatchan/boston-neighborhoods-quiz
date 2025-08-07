@@ -23,6 +23,7 @@ let neighborhoodData;
 let currentTarget;
 let layerMap = {}; // key: neighborhood name, value: layer
 let guessedNeighborhoods = new Set();
+let missedCount = 0;
 
 // 3. Load GeoJSON (hosted or local)
 fetch("boston_neighborhoods.geojson")
@@ -44,10 +45,11 @@ fetch("boston_neighborhoods.geojson")
   		if (name === currentTarget) {
     		layer.setStyle({ fillColor: "green" });
    		 guessedNeighborhoods.add(name);
-   		 updateScoreTracker();
    		 nextQuestion();
   		} else {
    		 layer.setStyle({ fillColor: "red" });
+		  missedCount++;
+		  updateScoreTracker();
   		}
 		});
    	   },
@@ -78,8 +80,6 @@ function nextQuestion() {
 
 //score tracker
 function updateScoreTracker() {
-  const total = Object.keys(layerMap).length;
-  const guessed = guessedNeighborhoods.size;
-  document.getElementById("score-tracker").textContent = `${guessed} / ${total}`;
+	document.getElementById("score-tracker").textContent = `Missed: ${missedCount}`;
 }
 
