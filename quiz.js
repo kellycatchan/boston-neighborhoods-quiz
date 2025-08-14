@@ -42,6 +42,7 @@ fetch("boston_neighborhoods.geojson")
         layerMap[name] = layer;
 
         layer.on("click", () => {
+		if (guessedNeighborhoods.has(name)) return;
   		if (name === currentTarget) {
     		layer.setStyle({ fillColor: "green" });
    		 guessedNeighborhoods.add(name);
@@ -50,6 +51,9 @@ fetch("boston_neighborhoods.geojson")
    		 layer.setStyle({ fillColor: "red" });
 		  missedCount++;
 		  updateScoreTracker();
+			setTimeout(() => {
+              layer.setStyle({ fillColor: "#ccc" });
+            }, 1000);
   		}
 		});
    	   },
