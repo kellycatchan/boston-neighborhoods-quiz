@@ -56,6 +56,19 @@ fetch("boston_neighborhoods.geojson")
     }).addTo(map);
 
 	map.fitBounds(geojsonLayer.getBounds());
+
+    // Fix for WordPress lazy loading / hidden containers
+    setTimeout(() => {
+      map.invalidateSize();
+      map.fitBounds(geojsonLayer.getBounds());
+    }, 200);
+
+    // Recenter on window resize (desktop + mobile)
+    window.addEventListener("resize", () => {
+      map.invalidateSize();
+      map.fitBounds(geojsonLayer.getBounds());
+    });
+	  
 	updateScoreTracker();
     nextQuestion();
   });
