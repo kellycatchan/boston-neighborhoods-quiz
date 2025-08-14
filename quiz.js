@@ -86,7 +86,7 @@ function nextQuestion() {
   const remaining = allNames.filter(name => !guessedNeighborhoods.has(name));
 
   if (remaining.length === 0) {
-    document.getElementById("target-name").textContent = `Quiz complete! You missed ${missedCount} neighborhoods.`;
+    document.getElementById("target-name").textContent = "Quiz complete!";
     // Optionally, disable further clicks or reset the game here
     return;
   }
@@ -97,6 +97,6 @@ function nextQuestion() {
 
 //score tracker
 function updateScoreTracker() {
-	document.getElementById("score-tracker").textContent = `Missed: ${missedCount}`;
+	document.getElementById("score-tracker").textContent = `Missed neighborhoods: ${missedCount}`;
 }
 
