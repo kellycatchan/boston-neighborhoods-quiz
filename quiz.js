@@ -53,7 +53,7 @@ fetch("boston_neighborhoods.geojson")
 		  updateScoreTracker();
 			setTimeout(() => {
               layer.setStyle({ fillColor: "#ccc" });
-            }, 1000);
+            }, 500);
   		}
 		});
    	   },
