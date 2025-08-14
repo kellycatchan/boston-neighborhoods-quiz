@@ -1,7 +1,7 @@
 // 1. Initialize the map
 const map = L.map('map', {
   center: [42.3601, -71.0589],
-  zoom: 8,
+  zoom: 12,
   zoomControl: false,
   scrollWheelZoom: false,
   doubleClickZoom: false,
@@ -12,7 +12,7 @@ const map = L.map('map', {
 
 const esriWorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-	maxZoom: 16
+	maxZoom: 8
 });
 
 esriWorldGrayCanvas.addTo(map);
