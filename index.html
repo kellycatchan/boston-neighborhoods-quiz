@@ -4,34 +4,72 @@
   <title>Boston Neighborhood Quiz</title>
   <meta charset="utf-8" />
   <link
+    href="https://fonts.googleapis.com/css?family=Roboto+Condensed"
+    rel="stylesheet"
+  />
+  <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
   <style>
-    #map { height: 100vh; width: 100%; }
-    #question { margin: 10px; font-size: 1.2em; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* No scroll bars */
+      font-family: 'Roboto Condensed', sans-serif;
+      text-align: center;
+    }
+
+    #header {
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    #map {
+      width: 100%;
+      height: calc(100vh - 180px); /* Adjust this based on header height */
+    }
 
     h1 {
-      text-align:center;
-      font-family:Roboto Condensed;
+      font-size: 1.8rem;
+      margin: 0 0 10px;
     }
+
     h2 {
-      text-align:center;
-      font-family:Roboto Condensed;
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin: 0 0 10px;
     }
-    div {
-    	text-align:center;
+
+    #question, #score-tracker {
+      font-size: 1.2rem;
+      margin: 5px 0;
+    }
+
+    @media (max-width: 600px) {
+      #map {
+        height: calc(100vh - 220px); /* Allow more space for taller mobile headers */
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>How well do you know Boston's neighborhoods?</h1><br>
-  <h2>If you identify the correct neighborhood on the map, it will turn green and give you another neighborhood.<br><br>If you're incorrect, it will turn red and you'll need to keep guessing until you find the right neighborhood on the map.</h2><br>
-  <div style="font-size:1.5rem;font-family:Roboto Condensed;" id="question">Click on: <span id="target-name">Loading...</span></div>
-  <div style="font-size:1.5rem;font-family:Roboto Condensed;" id="score-tracker">Missed: 0</div>
-  <br>
+  <div id="header">
+    <h1>How well do you know Boston's neighborhoods?</h1>
+    <h2>If you're correct, the neighborhood turns green and you'll get another. If you're wrong, it turns red — keep guessing!</h2>
+    <div id="question">Click on: <span id="target-name">Loading...</span></div>
+    <div id="score-tracker">Missed: 0</div>
+  </div>
+
   <div id="map"></div>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="quiz.js"></script>
 </body>
