@@ -1,7 +1,7 @@
 // 1. Initialize the map
 const map = L.map('map', {
   center: [42.3601, -71.0589],
-  zoom: 12,
+  zoom: 8,
   zoomControl: false,
   scrollWheelZoom: false,
   doubleClickZoom: false,
