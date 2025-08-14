@@ -86,7 +86,7 @@ function nextQuestion() {
   const remaining = allNames.filter(name => !guessedNeighborhoods.has(name));
 
   if (remaining.length === 0) {
-    document.getElementById("target-name").textContent = "All done!";
+    document.getElementById("target-name").textContent = `Quiz complete! You missed ${missedCount} neighborhoods.`;
     // Optionally, disable further clicks or reset the game here
     return;
   }
