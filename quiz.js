@@ -97,6 +97,6 @@ function nextQuestion() {
 
 //score tracker
 function updateScoreTracker() {
-	document.getElementById("score-tracker").textContent = `Missed neighborhoods: ${missedCount}`;
+	document.getElementById("score-tracker").textContent = `Incorrect guesses: ${missedCount}`;
 }
 
