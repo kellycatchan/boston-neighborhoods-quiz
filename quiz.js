@@ -38,7 +38,7 @@ fetch("boston_neighborhoods.geojson")
         fillOpacity: 1,
       },
       onEachFeature: (feature, layer) => {
-        const name = feature.properties.Name || feature.properties.name;
+        const name = feature.properties.name || feature.properties.Name;
         layerMap[name] = layer;
 
         layer.on("click", () => {
